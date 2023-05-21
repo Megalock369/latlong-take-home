@@ -1,0 +1,22 @@
+{
+    "users": [
+    { 
+        "email": "lucasgfinoti@hotmail.com",
+        "password": "123456",
+        "message": "Welcome Lucas Finoti"
+    }
+    ],
+    
+    "invUsers": [
+    {
+        "email": "123deoliveria4@nothing.com",
+        "password": "123456",
+        "message": "Incorrect username!"
+    },    
+    {
+        "email": "lucasgfinoti@hotmail.com",
+        "password": "123456a",
+        "message": "Incorrect password!"
+    } 
+    ]
+}
