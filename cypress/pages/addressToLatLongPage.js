@@ -1,14 +1,20 @@
 class AddressToLatLongPage {
+    
+  constructor() {
+    this.inputAddress = '[class="width70"]'
+    this.inputBtnFind = '[id="btnfind"]'
+  }
+
     visit() {
       cy.visit(Cypress.env('adrUrl'))
     }
   
     fillAddress(address) {
-      cy.get('[class="width70"]').clear().type(address)
+      cy.get(this.inputAddress).clear().type(address)
     }
   
     clickFindButton() {
-      cy.get('[id="btnfind"]').click()
+      cy.get(this.inputBtnFind).click()
     }
   
     assertLatitudeVisible(latitude) {

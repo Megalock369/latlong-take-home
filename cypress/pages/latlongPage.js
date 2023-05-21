@@ -1,14 +1,20 @@
 class latlongPage {
-    visit() {
+  
+  constructor() {
+    this.inputPlace = '[id="place"]'
+    this.inputBtnFind = '[id="btnfind"]'
+  }
+  
+  visit() {
       cy.visit(Cypress.env('latUrl'))
     }
   
     fillLocationName(name) {
-      cy.get('[id="place"]').clear().type(name)
+      cy.get(this.inputPlace).clear().type(name)
     }
   
     clickFindButton() {
-      cy.get('[id="btnfind"]').click()
+      cy.get(this.inputBtnFind).click()
     }
   
     assertLatitudeVisible(latitude) {

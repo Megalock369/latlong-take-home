@@ -1,18 +1,25 @@
 class loginPage {
+    
+  constructor() {
+    this.inputEmail = '[id="email"]'
+    this.inputPassword1 = '[id="password1"]'
+    this.inputBtnLogin = '[title="Login"]'
+  }
+  
     visit() {
       cy.visit(Cypress.env('logUrl'))
     }
   
     fillEmail(email) {
-      cy.get('[id="email"]').clear().type(email)
+      cy.get(this.inputEmail).clear().type(email)
     }
   
     fillPassword(password) {
-      cy.get('[id="password1"]').clear().type(password)
+      cy.get(this.inputPassword1).clear().type(password)
     }
   
     clickLoginButton() {
-      cy.get('[title="Login"]').click()
+      cy.get(this.inputBtnLogin).click()
     }
   
     assertMessageVisible(message) {

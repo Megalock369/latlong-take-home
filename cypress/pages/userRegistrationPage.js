@@ -1,64 +1,76 @@
 class userRegistrationPage {
+  
+  constructor() {
+    this.inputFirstName = '[id="firstname"]'
+    this.inputSurname = '[id="surname"]'
+    this.inputEmail = '[id="email"]'
+    this.inputPassword1 = '[id="password1"]'
+    this.inputPassword2 = '[id="password2"]'
+    this.checkboxAgree = '[id="cbAgr"]'
+    this.buttonRegister = '[title="Register"]'
+    this.successMessage = '[class="message success"]'
+  }
+    
     visit() {
       cy.visit(Cypress.env('regUrl'))
     }
   
     fillFirstName(firstName) {
-      cy.get('[id="firstname"]').type(firstName)
+      cy.get(this.inputFirstName).type(firstName)
     }
   
     fillSurname(surname) {
-      cy.get('[id="surname"]').type(surname)
+      cy.get(this.inputSurname).type(surname)
     }
   
     fillEmail(email) {
-      cy.get('[id="email"]').type(email)
+      cy.get(this.inputEmail).type(email)
     }
   
     fillPassword1(password) {
-      cy.get('[id="password1"]').type(password)
+      cy.get(this.inputPassword1).type(password)
     }
   
     fillPassword2(password) {
-      cy.get('[id="password2"]').type(password)
+      cy.get(this.inputPassword2).type(password)
     }
   
     clickAgreeCheckbox() {
-      cy.get('[id="cbAgr"]').click()
+      cy.get(this.checkboxAgree).click()
     }
   
     clickRegisterButton() {
-      cy.get('[title="Register"]').click()
+      cy.get(this.buttonRegister).click()
     }
   
     assertSuccessMessageVisible() {
-      cy.get('[class="message success"]').should('be.visible')
+      cy.get(this.successMessage).should('be.visible')
     }
   
     assertEmailValidationMessage(expectedMessage) {
-      cy.get('[id="email"]').invoke('prop', 'validationMessage').should('equal', expectedMessage)
+      cy.get(this.inputEmail).invoke('prop', 'validationMessage').should('equal', expectedMessage)
     }
   
     assertPassword1Validity(expectedValidity) {
-      cy.get('[id="password1"]').then(($el) => {
+      cy.get(this.inputPassword1).then(($el) => {
         expect($el[0].checkValidity()).to.equal(expectedValidity)
       })
     }
 
     assertEmailValidity(expectedEmailValidity){
-      cy.get('[id="email"]').then(($el) => {
+      cy.get(this.inputEmail).then(($el) => {
         expect($el[0].checkValidity()).to.equal(expectedEmailValidity)
         })
     }
 
     assertFirstNameValidity(expectedFirstNameValidity){
-      cy.get('[id="firstname"]').then(($el) => {
+      cy.get(this.inputFirstName).then(($el) => {
         expect($el[0].checkValidity()).to.equal(expectedFirstNameValidity)
         })
     }
       
     assertFirstNameValidationMessage(expectedMessage) {
-      cy.get('[id="firstname"]').invoke('prop', 'validationMessage').should('equal', expectedMessage)
+      cy.get(this.inputFirstName).invoke('prop', 'validationMessage').should('equal', expectedMessage)
     }
   }
   
